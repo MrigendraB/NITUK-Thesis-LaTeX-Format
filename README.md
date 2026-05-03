@@ -1,2 +1,3 @@
 # NITUK-Thesis-LaTeX-Format
-The Thesis (toc-1) contains a more closer version to prescribed format but needs adding a few lines of code in every chapter whereas, the toc-2 has a simpler toc and see no need of putting aforementioned code.
+## Thesis Format I - No Chapter page range, no parts and full palatino font (requires no additional setup)
+## Thesis Format II - Chapter page range, parts available and full palatino font (requires to input some code for new part and chapter to appear in toc)
