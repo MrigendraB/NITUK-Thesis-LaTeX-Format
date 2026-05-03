@@ -9,7 +9,7 @@
 % --- 1. THE TOC STYLE (As requested) ---
 \renewcommand{\cftdot}{} % No dots
 \renewcommand{\cftaftertoctitle}{%
-	\hfill \textbf{Page no.} \par
+	\hspace{14.6cm} \textbf{Page no.} \par
 	\vspace{-2\baselineskip}
 }
 
@@ -34,4 +34,6 @@
 \setlength{\cftsubsubsecindent}{5.5em} % Even further indent
 \setlength{\cftsubsubsecnumwidth}{5.5em}
 
-\tableofcontents
+\begin{adjustwidth}{0cm}{0.5cm}
+	\tableofcontents
+\end{adjustwidth}
