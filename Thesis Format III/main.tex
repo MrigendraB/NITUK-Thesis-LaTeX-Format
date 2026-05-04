@@ -1,0 +1,145 @@
+\documentclass[12pt,a4paper,twoside]{report}
+\usepackage[
+    inner=1.38in,
+    outer=0.49in,
+    top=0.98in,
+    bottom=0.49in,
+    footskip=0.3in]{geometry}
+\usepackage{changepage}
+\usepackage{lipsum}
+\usepackage{enumitem} 
+\usepackage{xcolor}
+\usepackage{transparent}
+
+\usepackage{titlesec}
+\setcounter{secnumdepth}{3} % This turns on the number on the page
+\setcounter{tocdepth}{3} 
+
+\usepackage{fancyhdr}
+\usepackage[
+	plainpages=false,      % FIX: Distinguishes between Roman 'i' and Arabic '1'
+	pdfpagelabels=true     % FIX: Makes PDF reader understand i, ii, 1, 2
+	hypertexnames=true, 
+	colorlinks=true,       % true = colored text; false = red boxes
+	linkcolor=blue,	       % Color for Table of Contents, Sections, etc.
+	citecolor=blue,       % Color for bibliography citations
+	urlcolor=green,         % Color for external websites
+	linktoc=all            % This makes BOTH the text and the page number clickable
+]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{setspace}
+\onehalfspacing 
+
+\usepackage[T1]{fontenc}
+%\usepackage{newpxtext,newpxmath} % Palatino
+\usepackage{newtxtext,newtxmath} % Times 
+%\usepackage{tgbonum} % Bookman 
+
+\begin{document}
+% --- frontmatter --- %
+\pagestyle{empty}
+\include{frontmatter/titlepage}
+
+\cleardoublepage
+\include{frontmatter/dedication}
+
+\cleardoublepage
+\include{frontmatter/copyright}
+
+\cleardoublepage
+\pagenumbering{roman}   % Changes numbering to i, ii, iii
+\setcounter{page}{1}     % Starts the count at 1
+
+\include{frontmatter/declaration}
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-1\relax}
+\include{frontmatter/certificate}
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-2\relax}
+\include{frontmatter/acknowledgements}
+
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-3\relax}
+\include{frontmatter/resume}
+
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-4\relax}
+\include{frontmatter/abstract}
+
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-5\relax}
+\include{frontmatter/toc}
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-6\relax}
+\include{frontmatter/lof}
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-7\relax}
+\include{frontmatter/lot}
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-8\relax}
+\include{frontmatter/nas}
+
+\cleardoublepage
+\renewcommand{\thepage}{\romannumeral\numexpr\value{page}-9\relax}
+\include{frontmatter/abbreviations}
+
+\cleardoublepage
+
+
+% --- mainmatter --- %
+\clearpage
+\pagenumbering{arabic}  % Switches numbering to 1, 2, 3
+\setcounter{page}{1}     % Restarts count at 1 for the first chapter
+
+\fancypagestyle{plain}{
+	\fancyhf{} % clear all
+	\fancyhead[R]{\textcolor{black!67}{\itshape \leftmark}}
+	\fancyfoot[C]{\thepage}
+}
+
+\renewcommand{\chaptermark}[1]{%
+	\markboth{Chapter \thechapter: #1}{}% 
+}
+
+\titleformat{\chapter}[display]
+{\bfseries\raggedleft} % Global: Bold and Right Aligned
+{\fontsize{16}{24}\selectfont\MakeUppercase CHAPTER - \thechapter} % Label: "CHAPTER - A.1"
+{0.3ex} % Space between Label and Title
+{\fontsize{16}{24}\selectfont\MakeUppercase} % Title: 16pt size, 24pt baseline, All Caps
+[\vspace{1ex}\hrule height 3pt \vspace{0.7pt} \hrule height 0.7pt \vspace{0.5\baselineskip}] % Double Rule
+\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+
+\fancypagestyle{main}{
+	\fancyhf{} % clear all
+	\fancyhead[R]{\textcolor{black!67}{\itshape \leftmark}}
+	\fancyfoot[C]{\thepage}
+}
+
+\renewcommand{\chaptermark}[1]{%
+	\markboth{Chapter \thechapter: #1}{}% 
+}
+
+\pagestyle{main}
+
+\include{mainmatter/chap 1}
+
+\include{mainmatter/chap 2}
+
+
+\setcounter{chapter}{0}
+\include{mainmatter/chap 3}
+
+\include{mainmatter/chap 4}
+
+\include{endmatter/references}
+\end{document}
